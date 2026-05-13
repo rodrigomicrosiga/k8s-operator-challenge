@@ -1,0 +1,9 @@
+apiVersion: apps.teste.com/v1
+kind: OperatorChallenge
+metadata:
+  labels:
+    app.kubernetes.io/name: k8s-operator-challenge
+    app.kubernetes.io/managed-by: kustomize
+  name: operatorchallenge-sample
+spec:
+  # TODO(user): Add fields here
