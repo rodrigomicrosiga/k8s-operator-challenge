@@ -5,7 +5,31 @@ metadata:
   name: manager-role
 rules:
 - apiGroups:
-  - apps.teste.com
+  - ""
+  resources:
+  - services
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apps.rodrigo.com
   resources:
   - operatorchallenges
   verbs:
@@ -17,13 +41,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - apps.teste.com
+  - apps.rodrigo.com
   resources:
   - operatorchallenges/finalizers
   verbs:
   - update
 - apiGroups:
-  - apps.teste.com
+  - apps.rodrigo.com
   resources:
   - operatorchallenges/status
   verbs:

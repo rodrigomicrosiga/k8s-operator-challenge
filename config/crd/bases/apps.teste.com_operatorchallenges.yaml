@@ -43,6 +43,21 @@ spec:
                 description: foo is an example field of OperatorChallenge. Edit operatorchallenge_types.go
                   to remove/update
                 type: string
+              image:
+                description: Image é a imagem do container a ser usada no Deployment
+                type: string
+              port:
+                description: Port é a porta exposta pelo container
+                format: int32
+                type: integer
+              replicas:
+                description: Replicas é o número desejado de réplicas
+                format: int32
+                type: integer
+            required:
+            - image
+            - port
+            - replicas
             type: object
           status:
             description: status defines the observed state of OperatorChallenge
@@ -116,6 +131,10 @@ spec:
                 x-kubernetes-list-map-keys:
                 - type
                 x-kubernetes-list-type: map
+              readyReplicas:
+                description: ReadyReplicas é o número de réplicas prontas no Deployment
+                format: int32
+                type: integer
             type: object
         required:
         - spec
