@@ -30,6 +30,15 @@ type OperatorChallengeSpec struct {
 	// The following markers will use OpenAPI v3 schema to validate the value
 	// More info: https://book.kubebuilder.io/reference/markers/crd-validation.html
 
+	// Image é a imagem do container a ser usada no Deployment
+	Image string `json:"image"`
+
+	// Replicas é o número desejado de réplicas
+	Replicas *int32 `json:"replicas"`
+
+	// Port é a porta exposta pelo container
+	Port int32 `json:"port"`
+
 	// foo is an example field of OperatorChallenge. Edit operatorchallenge_types.go to remove/update
 	// +optional
 	Foo *string `json:"foo,omitempty"`
@@ -42,6 +51,9 @@ type OperatorChallengeStatus struct {
 
 	// For Kubernetes API conventions, see:
 	// https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#typical-status-properties
+
+	// ReadyReplicas é o número de réplicas prontas no Deployment
+	ReadyReplicas int32 `json:"readyReplicas,omitempty"`
 
 	// conditions represent the current state of the OperatorChallenge resource.
 	// Each condition has a unique type and reflects the status of a specific aspect of the resource.
